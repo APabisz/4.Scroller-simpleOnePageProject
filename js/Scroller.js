@@ -26,7 +26,7 @@ class Scroller {
     if (this.isThrottled) return
     this.isThrottled = true
 
-    setTimeout(() => (this.isThrottled = false), 800)
+    setTimeout(() => (this.isThrottled = false), 500)
 
     const direction = e.deltaY > 0 ? 1 : -1
 
