@@ -1,0 +1,9 @@
+.section {
+  height: 100vh;
+  text-align: center;
+
+  &__info {
+    max-width: 75%;
+    margin: 15px auto;
+  }
+}
