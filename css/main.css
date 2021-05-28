@@ -10,6 +10,11 @@ html {
   overflow: hidden;
 }
 
+body {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .section {
   height: 100vh;
   text-align: center;
