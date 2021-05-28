@@ -8,6 +8,8 @@ class Scroller {
     )
     this.currentSectionIndex = Math.max(currentSectionIndex, 0)
     this.isThrottled = false
+
+    this.drawNavigation()
   }
 
   isScrolledIntoView(el) {
@@ -47,9 +49,42 @@ class Scroller {
   }
 
   scrollToCurrentSection = () => {
+    this.selectActiveNavItem()
     this.sections[this.currentSectionIndex].scrollIntoView({
       behavior: "smooth",
       block: "start",
     })
+  }
+
+  drawNavigation = () => {
+    this.navigationContainer = document.createElement("aside")
+    this.navigationContainer.setAttribute("class", "scroller")
+    const list = document.createElement("ul")
+    list.className = "scroller__list"
+    this.sections.forEach((section, index) => {
+      const listItem = document.createElement("li")
+      listItem.className = "scroller__item"
+      listItem.addEventListener("click", () => {
+        this.currentSectionIndex = index
+        this.scrollToCurrentSection()
+      })
+      list.appendChild(listItem)
+    })
+    this.navigationContainer.appendChild(list)
+    document.body.appendChild(this.navigationContainer)
+    this.selectActiveNavItem()
+  }
+
+  selectActiveNavItem = () => {
+    if (this.navigationContainer) {
+      const navItems = this.navigationContainer.querySelectorAll("li")
+      navItems.forEach((item, index) => {
+        if (index === this.currentSectionIndex) {
+          item.classList.add("scroller__item--active")
+        } else {
+          item.classList.remove("scroller__item--active")
+        }
+      })
+    }
   }
 }

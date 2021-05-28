@@ -19,4 +19,35 @@ html {
   max-width: 75%;
   margin: 15px auto;
 }
+
+.scroller {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.scroller__list {
+  list-style: none;
+}
+
+.scroller__item {
+  width: 12px;
+  height: 12px;
+  margin-top: 12px;
+  border-radius: 50%;
+  background-color: #00bfffaa;
+  cursor: pointer;
+}
+
+.scroller__item:first-child {
+  margin-top: 0;
+}
+
+.scroller__item--active {
+  background-color: #00bfffff;
+  -webkit-box-shadow: 0 0 3px 1px #00bfff;
+          box-shadow: 0 0 3px 1px #00bfff;
+}
 /*# sourceMappingURL=main.css.map */

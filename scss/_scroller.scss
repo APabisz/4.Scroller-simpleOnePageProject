@@ -1,0 +1,28 @@
+.scroller {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    width: 12px;
+    height: 12px;
+    margin-top: 12px;
+    border-radius: 50%;
+    background-color: #00bfffaa;
+    cursor: pointer;
+
+    &:first-child {
+      margin-top: 0
+    }
+
+    &--active {
+      background-color: #00bfffff;
+      box-shadow: 0 0 3px 1px #00bfff;
+    }
+  }
+}
